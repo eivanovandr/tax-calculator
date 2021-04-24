@@ -13,6 +13,7 @@ class InputUI extends React.Component {
         }
     }
 
+    //add char to line string
     addChar(charToAdd){
         let lineCopy = this.state.line;
 
@@ -23,18 +24,26 @@ class InputUI extends React.Component {
 
     }
 
+    //remove last char in line string
     removeChar(){
 
         let lineCopy = this.state.line;
-
-
         this.setState({line : lineCopy.slice(0, -1)})
     }
 
+    //pass value of string to calculator component
     passToCalculator(){
-        this.props.addToCalculator(this.state.line);
 
-        this.setState({line : ''})
+        //from string to float
+        let num = parseFloat(this.state.line);
+
+        //empty input defence
+        if(!isNaN(num)){
+            this.props.addToCalculator(num);
+
+            this.setState({line : ''})
+        }
+
     }
 
     render() {

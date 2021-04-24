@@ -3,7 +3,8 @@ import './Calculator.css'
 
 
 import InputUI from "./InputUI";
-//import Item from "./Item";
+import Item from "./Item";
+
 
 
 
@@ -18,19 +19,33 @@ class Calculator extends React.Component {
 
     }
 
-
+    //add to Items
     addNewItem (itemToAdd){
-
-        //from string to float
-        let num = parseFloat(itemToAdd)
-
-        //add to Items
         let itemsCopy = this.state.items;
-        itemsCopy.push(num);
+
+        //item object
+        let item = {
+            id : Date.now(),
+            value: itemToAdd
+        }
+
+        itemsCopy.push(item);
 
         //update state
         this.setState({items : itemsCopy});
 
+    }
+
+    deleteItem(idToDelete){
+        let itemsCopy = this.state.items;
+
+        //filter by idToDelete
+        itemsCopy = itemsCopy.filter(function( obj ) {
+            return obj.id !== idToDelete;
+        });
+
+        //update state
+        this.setState({items : itemsCopy});
     }
 
     render() {
@@ -38,6 +53,13 @@ class Calculator extends React.Component {
             <div className="Calculator">
                 <InputUI addToCalculator={this.addNewItem.bind(this)}/>
 
+                <div className="Items">
+                    {
+                        this.state.items.map((item) => {
+                            return <Item  key={item.id} id={item.id} value={item.value} deleteItem={this.deleteItem.bind(this)}/>
+                        })
+                    }
+                </div>
             </div>
         );
     }

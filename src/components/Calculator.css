@@ -4,4 +4,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.Items{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.item button{
+    width: 25px;
+    height: 25px;
 }
