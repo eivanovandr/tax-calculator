@@ -143,9 +143,10 @@ export default function Calculator(){
         <div className='calculator'>
             <p>Welcome to Calculator</p>
 
-            <p>Price | Tax | Total</p>
+            <p>Quantity | Price | Tax | Total</p>
             <ItemList items={items} deleteItem={deleteItem} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity}/>
 
+            <p>Price | Tax | Total</p>
             <p>${getSum()} | ${getSumTax()} | ${getSumWithTax()}</p>
             <Button id='addBtn' title='+' doOnClick={UILogic}/>
             <p id='signature'>by Egor Ivanov</p>

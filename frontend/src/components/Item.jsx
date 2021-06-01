@@ -27,7 +27,7 @@ export default function Item(props){
                 <Button doOnClick={incrementMe} title='+'/>
             </div>
 
-            <p>${props.value.toFixed(2)} | ${(props.value * 0.13).toFixed(2)} | ${(props.value + props.value * 0.13).toFixed(2)}</p>
+            <p>${(props.value*props.quantity).toFixed(2)} | ${((props.value * 0.13)*props.quantity).toFixed(2)} | ${((props.value + props.value * 0.13)*props.quantity).toFixed(2)}</p>
 
             <Button doOnClick={deleteMe} title='x'/>
         </div>
