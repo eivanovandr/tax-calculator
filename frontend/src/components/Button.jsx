@@ -5,7 +5,7 @@ export default function Button(props){
 
     return(
 
-        <button onClick={props.doOnClick}>{props.title}</button>
+        <button id={props.id} className='btn' onClick={props.doOnClick}>{props.title}</button>
     );
 
 

@@ -31,7 +31,8 @@ export default function InputUI (props){
         //create new number object with unique id
         props.addItem({
             id : Math.floor(Math.random() * Date.now()),
-            value : parseFloat(userInput)
+            value : parseFloat(userInput),
+            quantity : 1
         })
     }
 
